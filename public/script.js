@@ -53,24 +53,32 @@ function showSection(sectionId) {
 }
 
 // Job posting
-document.querySelector('.job-form').addEventListener('submit', function(e) {
+document.querySelector('.job-form').addEventListener('submit', async function(e) {
     e.preventDefault();
-    const formData = new FormData(e.target);
     const inputs = e.target.querySelectorAll('input, select, textarea');
     
-    const newJob = {
-        id: jobs.length + 1,
+    const jobData = {
         title: inputs[0].value,
         company: inputs[1].value,
         category: inputs[2].value,
         location: inputs[3].value,
         salary: inputs[4].value,
-        description: inputs[5].value
+        description: inputs[5].value,
+        requirements: inputs[6].value
     };
     
-    jobs.push(newJob);
-    e.target.reset();
-    alert('Job posted successfully!');
+    try {
+        const response = await fetch('/api/jobs', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(jobData)
+        });
+        const result = await response.json();
+        alert(result.message);
+        e.target.reset();
+    } catch (error) {
+        alert('Error posting job');
+    }
 });
 
 // Profile creation
