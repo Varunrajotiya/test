@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobConnect - Executive Job Posting & Talent Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">JobConnect</div>
+        <div class="nav-links">
+            <button onclick="showSection('jobs')" class="nav-btn">Browse Jobs</button>
+            <button onclick="showSection('post-job')" class="nav-btn">Post Job</button>
+            <button onclick="showSection('profiles')" class="nav-btn">Find Talent</button>
+            <button onclick="showSection('create-profile')" class="nav-btn">Create Profile</button>
+        </div>
+    </nav>
+
+    <!-- Job Posting Section (Executives) -->
+    <section id="post-job" class="section">
+        <h2>Post a Job</h2>
+        <form class="job-form">
+            <input type="text" placeholder="Job Title" required>
+            <input type="text" placeholder="Company Name" required>
+            <select required>
+                <option value="">Select Category</option>
+                <option value="development">Development & IT</option>
+                <option value="design">Design & Creative</option>
+                <option value="marketing">Sales & Marketing</option>
+                <option value="finance">Finance & Accounting</option>
+                <option value="legal">Legal</option>
+            </select>
+            <input type="text" placeholder="Location">
+            <input type="text" placeholder="Salary Range">
+            <textarea placeholder="Job Description" rows="4" required></textarea>
+            <textarea placeholder="Requirements" rows="3"></textarea>
+            <button type="submit">Post Job</button>
+        </form>
+    </section>
+
+    <!-- User Profile Creation -->
+    <section id="create-profile" class="section">
+        <h2>Create Your Profile</h2>
+        <form class="profile-form">
+            <input type="text" placeholder="Full Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="text" placeholder="Professional Title" required>
+            <select required>
+                <option value="">Select Expertise</option>
+                <option value="development">Development & IT</option>
+                <option value="design">Design & Creative</option>
+                <option value="marketing">Sales & Marketing</option>
+                <option value="finance">Finance & Accounting</option>
+                <option value="legal">Legal</option>
+            </select>
+            <textarea placeholder="Bio & Skills" rows="3" required></textarea>
+            <input type="text" placeholder="Years of Experience">
+            <input type="url" placeholder="Portfolio URL">
+            <input type="file" accept="image/*" placeholder="Profile Picture">
+            <button type="submit">Create Profile</button>
+        </form>
+    </section>
+
+    <!-- Job Listings -->
+    <section id="jobs" class="section active">
+        <h2>Available Jobs</h2>
+        <div id="job-list" class="job-list"></div>
+    </section>
+
+    <!-- Talent Profiles -->
+    <section id="profiles" class="section">
+        <h2>Find Talent</h2>
+        <div class="filter-bar">
+            <select id="category-filter">
+                <option value="">All Categories</option>
+                <option value="development">Development & IT</option>
+                <option value="design">Design & Creative</option>
+                <option value="marketing">Sales & Marketing</option>
+                <option value="finance">Finance & Accounting</option>
+                <option value="legal">Legal</option>
+            </select>
+        </div>
+        <div id="profile-list" class="profile-list"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
